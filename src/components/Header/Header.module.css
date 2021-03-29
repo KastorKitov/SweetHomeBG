@@ -1,0 +1,136 @@
+.navbar {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    align-self: center;  
+    letter-spacing: 0.05rem;
+    background: #234465;
+    padding: 0.8rem 1rem;
+    color: white;
+  }
+  .siteHeader > nav > section.navbarDashboard > a{
+      list-style: none;
+      text-decoration: none;
+      align-self: center;
+      font-weight: bold;
+      font-size: 1.5rem;
+      color: white;
+      
+  }
+  .siteHeader > nav > section.navbarDashboard > form > input[type="text"],
+  .siteHeader > nav > section.navbarAnonymous > ul > li:nth-child(1) > a,
+  .siteHeader > nav > section.navbarUser > ul > li:nth-child(1),
+  .siteHeader > nav > section.navbarDashboard > ul > li:nth-child(1) > a{
+      margin-right: 0.5rem;
+  
+  }
+  
+  
+.navbar ul {
+    background: transparent;
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+    margin: 0;
+  }
+.navbar ul li {
+    display: block;
+    list-style: none outside;
+    position: relative;
+  }
+.navbar ul li a {
+    display: block;
+    padding: 1rem 0.8rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: bold;
+    background: cadetblue;
+    color: rgb(255, 255, 255);
+  }
+  .button:hover,
+.navbar ul li a:hover,
+.navbar ul li:hover > a {
+    background: rgb(248, 215, 107);
+    color: rgb(0, 0, 0);
+    font-weight: bold;
+  }
+  
+  
+  
+  .dashboard nav{
+      background: transparent;
+  }
+  .navbarDashboard{
+      display: flex;
+      justify-content: space-between;    
+      width: 100vw;
+  }
+  .navbar .firstBar{
+      display: flex;
+      align-items: center;
+  }
+  .navbar .firstBar a{
+      color: white;
+      margin-right: 0.5rem;
+  }
+  .navbar .firstBar input{  
+      margin-right: 0.5rem;
+  }
+  .siteHeader > nav > section > div.firstBar > a:nth-child(1){
+      font-weight: bold;
+      font-size: 3rem;
+  }
+  .navbar .firstBar form{
+      display: flex;
+      align-items: center;
+  }
+  .navbar .secoundBar ul{
+      display: flex;
+      align-items: center;
+  }
+  .navbar .secoundBar ul li{
+      margin-right: 2rem;
+  }
+  .navbar .secoundBar .button{
+    font-size: 1.5rem;
+      padding: 0;
+      text-align: center;
+    margin-right: 2rem;
+  }
+  .navbarAnonymous ul{
+      display: flex;
+  }
+
+  
+  
+  .login form,
+  .register form,
+  .create form {
+    margin: 5rem auto;
+  }
+  
+  .button {
+    display: block;
+    padding: 1rem 1rem;
+    margin-left: 30px;
+    margin-right: 30px;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-weight: bold;
+    background: cadetblue;
+    color: rgb(255, 255, 255);
+    border: none;
+    font-size: 1rem;
+  
+  }
+  
+  a {
+    text-decoration: none;
+    display: inline-block;
+  }
+  
+  li {
+    list-style-type: none;
+  }
+  .wellcome{
+    font-size: 2rem;
+  }
