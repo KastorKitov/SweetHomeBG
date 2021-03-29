@@ -14,7 +14,7 @@ function Filter(props) {
             </select>
         </span>
         <input type="text" className={style.searchTerm} name="search" placeholder="Search..."/>
-        <input type="submit" className={style.searchButton} value="O"/>
+        <input type="submit" className={style.searchButton} value="Search"/>
       </form>
         </main>
     )
