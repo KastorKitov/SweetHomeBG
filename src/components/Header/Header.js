@@ -1,4 +1,5 @@
 import style from './Header.module.css';
+import {Link} from 'react-router-dom';
 
 function Header(props) {
     return (
@@ -7,15 +8,15 @@ function Header(props) {
 
                 <section className={style.navbarDashboard}>
                     <div className={style.firstBar}>
-                        <a className={style.sweetHome} href='/'>SweetHome.BG</a>
-                        <a className={style.button} href="#">My Appartaments</a>
-                        <a className={style.button} href="#">Liked Appartaments</a>
-                        <a className={style.button} href="#">Sell Appartament</a>
+                        <Link className={style.sweetHome} to='/'>SweetHome.BG</Link>
+                        <Link className={style.button} to="#">My Appartaments</Link>
+                        <Link className={style.button} to="#">Liked Appartaments</Link>
+                        <Link className={style.button} to="#">Sell Appartament</Link>
                     </div>
                     <div className={style.secoundBar}>
                         <ul>
                             <li className={style.wellcome}>Welcome, username!</li>
-                            <li><a href="#"><i className={style.button}></i> Logout</a></li>
+                            <li><Link to="#"><i className={style.button}></i> Logout</Link></li>
                         </ul>
                     </div>
                 </section>
