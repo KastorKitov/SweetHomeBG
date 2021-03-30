@@ -21,10 +21,10 @@ function Header(props) {
                     </div>
                 </section>
                 <section className={style.navbarAnonymous}>
-                    <ul>
-                        <li><a href="/"><i className="fas fa-user-plus"></i> Register</a></li>
-                        <li><a href="/"><i className="fas fa-sign-in-alt"></i> Login</a></li>
-                    </ul>
+                            <ul>
+                            <li><a href="/"><i className="fas fa-user-plus"></i> Register</a></li>
+                            <li><a href="/"><i className="fas fa-sign-in-alt"></i> Login</a></li>
+                        </ul>
                 </section>
             </nav>
         </header>

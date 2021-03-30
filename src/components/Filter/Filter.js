@@ -1,5 +1,6 @@
 import style from './Filter.module.css';
 import ApartamentPiece from '../ApartamentPiece/ApartamentPiece';
+import Footer from '../Footer/Footer';
 import { useState , useEffect} from 'react';
 function Filter(props) {
 
@@ -16,7 +17,8 @@ function Filter(props) {
         <main className={style.wrap}>
             <form action="/" className="search" method="GET">
             <input type="number" name="from" className={style.searchPrice} placeholder="Price from..."/>
-        <input type="number" name="to" className={style.searchPrice} placeholder="Price to..."/>
+            <input type="number" name="to" className={style.searchPrice} placeholder="Price to..."/>
+            <input type="text" name="city" className={style.searchPrice} placeholder="City..."/>
         <span className="input">
             <select type="text" className={style.searchBar} name="category">
                 <option value="1">One Room</option>
@@ -24,7 +26,7 @@ function Filter(props) {
                 <option value="3">Three Rooms</option>
             </select>
         </span>
-        <input type="text" className={style.searchTerm} name="search" placeholder="Search..."/>
+        <input type="text" className={style.searchTerm} name="search" placeholder="Apartament Name..."/>
         <input type="submit" className={style.searchButton} value="Search"/>
       </form>
         </main>
@@ -35,7 +37,8 @@ function Filter(props) {
             city={x.city}
             imageURL={x.imageURL}
         />)})
-}
+        }
+        <Footer/>
         </div>
     )
 };
