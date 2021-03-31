@@ -1,0 +1,44 @@
+img.cube {
+    height: 400px;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+}
+main.detailsMain {
+    margin: 0 4em;
+    border-radius: 15px;
+    padding: 2em;
+}
+h1.detailsHeader {
+    text-align: center;
+    text-transform: uppercase;
+}
+a.detailsButton {
+    border: none;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    width: 10%;
+    margin: 12px;
+    border-radius: 4px;
+    background: #607588;
+    color: white;
+}
+div.details {
+    text-align: center;
+    display: block;
+    margin: auto;
+    width: 1000px;
+    background-color: #f3f3f2;
+    padding: 1em;
+}
+span.detailsSpan {
+    font-weight: bolder;
+    font-size: 17px;
+    font-style: italic;
+    text-align: center;
+    padding: 10px;
+}

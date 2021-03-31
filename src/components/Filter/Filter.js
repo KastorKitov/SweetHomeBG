@@ -50,6 +50,7 @@ function Filter(props) {
       </form>
         </main>
         {apartaments.map(x=>{ return(<ApartamentPiece key={x._id}
+            id={x._id}
             name={x.name}
             rooms={x.rooms}
             price={x.price}

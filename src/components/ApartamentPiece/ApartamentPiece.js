@@ -3,6 +3,7 @@ import {Link} from 'react-router-dom';
 
 
 function ApartamentPiece({
+    id,
     name,
     rooms,
     price,
@@ -17,7 +18,7 @@ function ApartamentPiece({
                 <p><span className={style.spanDif}>City:</span> {city}</p>
                 <p><span className={style.spanDif}>Rooms:</span>{rooms}</p>
                 <p><span className={style.spanDif}>Price:</span> {price} euro</p>
-                <Link className={style.btn} to="/">Details</Link>
+                <Link className={style.btn} to={`/apartaments/details/${id}`}>Details</Link>
                 <Link className={style.btn} to="/">Like</Link>
         </div>
     )
