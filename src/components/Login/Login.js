@@ -1,7 +1,5 @@
 import style from './Login.module.css';
-import {Redirect} from 'react-router-dom';
-import { useState } from 'react';
-
+import Footer from '../Footer/Footer';
 
 function Login(props) {
 
@@ -15,6 +13,7 @@ function Login(props) {
                 <input className={style.inputForLogin} type="password" name="password"  placeholder="password..." />
                 <input  className={style.loginSubmit} type="submit" value="Login" />
             </form>
+            <Footer/>
         </div>
     )
 }

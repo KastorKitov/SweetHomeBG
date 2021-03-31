@@ -1,6 +1,6 @@
 img.cube {
     height: 400px;
-    width: auto;
+    width: 600px;
     display: block;
     margin: 0 auto;
     text-align: center;
@@ -19,21 +19,26 @@ a.detailsButton {
     padding: 8px;
     text-align: center;
     text-decoration: none;
+    font-weight: bold;
     display: inline-block;
     font-size: 18px;
-    width: 10%;
+    width: 12%;
     margin: 12px;
-    border-radius: 4px;
-    background: #607588;
+    border-radius: 12px;
+    background: rgb(67, 122, 124);
     color: white;
+}
+a.detailsButton:hover{
+    background-color: rgb(248, 215, 107);
 }
 div.details {
     text-align: center;
     display: block;
     margin: auto;
     width: 1000px;
-    background-color: #f3f3f2;
+    background-color: #5193d1;
     padding: 1em;
+    border-radius: 12px;
 }
 span.detailsSpan {
     font-weight: bolder;

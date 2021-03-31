@@ -1,6 +1,7 @@
 import style from './Register.module.css';
 import {Redirect} from 'react-router-dom';
 import { useState } from 'react';
+import Footer from '../Footer/Footer';
 
 
 function Register(props) {
@@ -38,6 +39,7 @@ function Register(props) {
                 <input className={style.inputForRegister} type="password" name="repeatPassword"  placeholder="password..." />
                 <input  className={style.registerSubmit} type="submit" value="Register" />
             </form>
+            <Footer/>
         </div>
     )
 }

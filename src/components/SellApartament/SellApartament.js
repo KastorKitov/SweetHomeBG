@@ -1,6 +1,7 @@
 import style from './SellApartament.module.css';
 import {Redirect} from 'react-router-dom';
 import { useState } from 'react';
+import Footer from '../Footer/Footer';
 
 
 function SellApartament(props) {
@@ -47,6 +48,7 @@ function SellApartament(props) {
                 <textarea type="text" name="description"  placeholder="Description..." />
                 <input  className={style.sellSubmit} type="submit" value="Sell" />
             </form>
+            <Footer/>
         </div>
     )
 }
