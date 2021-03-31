@@ -11,7 +11,7 @@ function Header(props) {
                         <Link className={style.sweetHome} to='/'>SweetHome.BG</Link>
                         <Link className={style.button} to="/">My Apartaments</Link>
                         <Link className={style.button} to="/">Liked Apartaments</Link>
-                        <Link className={style.button} to="/">Sell Apartament</Link>
+                        <Link className={style.button} to="/apartaments/sell">Sell Apartament</Link>
                     </div>
                     <div className={style.secoundBar}>
                         <ul>
@@ -22,8 +22,8 @@ function Header(props) {
                 </section>
                 <section className={style.navbarAnonymous}>
                             <ul>
-                            <li><a href="/"><i className="fas fa-user-plus"></i> Register</a></li>
-                            <li><a href="/"><i className="fas fa-sign-in-alt"></i> Login</a></li>
+                            <li><a href="/"><i className={style.a}></i> Register</a></li>
+                            <li><a href="/"><i className={style.a}></i> Login</a></li>
                         </ul>
                 </section>
             </nav>

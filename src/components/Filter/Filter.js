@@ -15,7 +15,7 @@ function Filter(props) {
     return (
         <div>
         <main className={style.wrap}>
-            <form action="/" className="search" method="GET">
+            <form action="/" className={style.search} method="GET">
             <input type="number" name="from" className={style.searchPrice} placeholder="Price from..."/>
             <input type="number" name="to" className={style.searchPrice} placeholder="Price to..."/>
             <input type="text" name="city" className={style.searchPrice} placeholder="City..."/>

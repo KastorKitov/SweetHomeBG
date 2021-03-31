@@ -1,0 +1,43 @@
+import style from './SellApartament.module.css';
+
+function SellApartament(props) {
+
+    const onSellHandler = (e) => {
+        e.preventDefault();
+        fetch('http://localhost:5000/apartaments/sell', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify([
+                {name:e.target.name.value},
+                {rooms:e.target.rooms.value},
+                {city:e.target.city.value},
+                {price:e.target.price.value},
+                {imageURL:e.target.imageURL.value},
+                {description:e.target.description.value},
+            ])
+        })
+    };
+
+    return (
+        <div>
+            <h1 className={style.headerForSell}>Sell your apartament or house</h1>
+            <form className={style.form} onSubmit={onSellHandler}>
+                <label htmlFor="name" className={style.sell}>Title</label>
+                <input  className={style.inputForSale} type="text" name="name" placeholder="Title..." />
+                <label htmlFor="Rooms" className={style.sell}>Rooms</label>
+                <input className={style.inputForSale} type="number" name="rooms"  placeholder="Rooms..." />
+                <label htmlFor="city" className={style.sell}>City</label>
+                <input className={style.inputForSale} type="text" name="city"  placeholder="City..." />
+                <label htmlFor="Price" className={style.sell}>Price</label>
+                <input className={style.inputForSale} type="number" name="price"  placeholder="Price..." />
+                <label htmlFor="imageURL" className={style.sell}>Image URL</label>
+                <input  className={style.inputForSale} type="text" name="imageURL" placeholder="Image URL" />
+                <label htmlFor="description" className={style.sell}>Description</label>
+                <textarea type="text" name="description"  placeholder="Description..." />
+                <input  className={style.sellSubmit} type="submit" value="Sell" />
+            </form>
+        </div>
+    )
+}
+
+export default SellApartament;
