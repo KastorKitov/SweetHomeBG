@@ -1,6 +1,6 @@
 import './App.css';
 
-import {Route,Router,Switch,} from 'react-router-dom';
+import {Route,Switch} from 'react-router-dom';
 import Header from './components/Header/Header';
 import ApartamentPiece from './components/ApartamentPiece/ApartamentPiece';
 import Filter from './components/Filter/Filter';

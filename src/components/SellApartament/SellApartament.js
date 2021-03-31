@@ -1,6 +1,11 @@
 import style from './SellApartament.module.css';
+import {Redirect} from 'react-router-dom';
+import { useState } from 'react';
+
 
 function SellApartament(props) {
+
+    const [created,setCreated] = useState(false);
 
     const onSellHandler = (e) => {
         e.preventDefault();
@@ -16,10 +21,16 @@ function SellApartament(props) {
                 {description:e.target.description.value},
             ])
         })
+        .then(res=>res.json())
+        .then(res=> {
+            console.log('yes')
+                setCreated(true);
+            })
+        .catch(err=>console.log('something went wrong'))
     };
-
     return (
         <div>
+            {created?<Redirect to="/"/>:null}
             <h1 className={style.headerForSell}>Sell your apartament or house</h1>
             <form className={style.form} onSubmit={onSellHandler}>
                 <label htmlFor="name" className={style.sell}>Title</label>
