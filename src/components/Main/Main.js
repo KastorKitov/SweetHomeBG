@@ -1,8 +1,8 @@
-import style from './Filter.module.css';
+import style from './Main.module.css';
 import ApartamentPiece from '../ApartamentPiece/ApartamentPiece';
 import Footer from '../Footer/Footer';
 import { useState , useEffect} from 'react';
-function Filter(props) {
+function Main(props) {
 
     const [apartaments,setApartament] = useState([]);
 
@@ -63,4 +63,4 @@ function Filter(props) {
     )
 };
 
-export default Filter;
+export default Main;

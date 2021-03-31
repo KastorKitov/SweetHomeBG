@@ -1,21 +1,25 @@
 import './App.css';
 
-import {Route,Switch} from 'react-router-dom';
+import {Route,Router,Switch} from 'react-router-dom';
 import Header from './components/Header/Header';
 import ApartamentPiece from './components/ApartamentPiece/ApartamentPiece';
-import Filter from './components/Filter/Filter';
+import Main from './components/Main/Main';
 import SellApartament from './components/SellApartament/SellApartament';
 import Details from './components/Details/Details';
+import Register from './components/Register/Register';
+import Login from './components/Login/Login';
 
 function App() {
   return (
     <div className="container">
       <Header/>
       <Switch>
-      <Route path="/" exact component={Filter}/>
+      <Route path="/" exact component={Main}/>
       <Route path="/apartaments/sell" exact component={SellApartament}/>
       <Route path="/test" exact component={ApartamentPiece}/>
       <Route path="/apartaments/details/:id" exact component={Details}/>
+      <Route path="/user/register" exact component={Register}/>
+      <Route path="/user/login" exact component={Login}/>
       </Switch>
     </div>
   );

@@ -22,8 +22,8 @@ function Header(props) {
                 </section>
                 <section className={style.navbarAnonymous}>
                             <ul>
-                            <li><a href="/"><i className={style.a}></i> Register</a></li>
-                            <li><a href="/"><i className={style.a}></i> Login</a></li>
+                            <li><a href="/user/register"><i className={style.a}></i> Register</a></li>
+                            <li><a href="/user/login"><i className={style.a}></i> Login</a></li>
                         </ul>
                 </section>
             </nav>
