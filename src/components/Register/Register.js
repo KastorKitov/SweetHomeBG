@@ -6,7 +6,7 @@ import Footer from '../Footer/Footer';
 
 function Register(props) {
 
-    const [created,setCreated] = useState(false);
+    const [registered,setRegistered] = useState(false);
 
     const onSellHandler = (e) => {
         e.preventDefault();
@@ -22,13 +22,13 @@ function Register(props) {
         .then(res=>res.json())
         .then(res=> {
             console.log('yes')
-                setCreated(true);
+                setRegistered(true);
             })
         .catch(err=>console.log('something went wrong'))
     };
     return (
         <div>
-            {created?<Redirect to="/"/>:null}
+            {registered?<Redirect to="/"/>:null}
             <h1 className={style.headerForRegister}>Register in SweetHome.BG</h1>
             <form className={style.form} onSubmit={onSellHandler}>
                 <label htmlFor="username" className={style.register}>Username</label>
