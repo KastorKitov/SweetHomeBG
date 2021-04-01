@@ -16,7 +16,7 @@ function Header(props) {
                     <div className={style.secoundBar}>
                         <ul>
                             <li className={style.wellcome}>Welcome, username!</li>
-                            <li><Link to="/"><i className={style.button}></i> Logout</Link></li>
+                            <li><Link to="/test"><i className={style.button}></i> Logout</Link></li>
                         </ul>
                     </div>
                 </section>

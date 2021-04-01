@@ -28,7 +28,7 @@ function Register(props) {
     };
     return (
         <div>
-            {registered?<Redirect to="/"/>:null}
+            {registered?<Redirect to="/user/login"/>:null}
             <h1 className={style.headerForRegister}>Register in SweetHome.BG</h1>
             <form className={style.form} onSubmit={onSellHandler}>
                 <label htmlFor="username" className={style.register}>Username</label>
