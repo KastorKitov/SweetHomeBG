@@ -23,8 +23,8 @@ function Header(props) {
                     <div className={style.firstBar}>
                         <Link className={style.sweetHome} to="/">SweetHome.BG</Link>
                         <Link className={style.button} to="/">Browse Properties</Link>
-                        <Link className={style.button} to={`/apartaments/${user._id}`}>My Properties</Link>
-                        <Link className={style.button} to="/">Liked Properties</Link>
+                        <Link className={style.button} to={`/apartaments/mine/${user._id}`}>My Properties</Link>
+                        <Link className={style.button} to={`/apartaments/liked/${user._id}`}>Liked Properties</Link>
                         <Link className={style.button} to="/apartaments/sell">Sell Property</Link>
                     </div>
                     :<div className={style.firstBar}>

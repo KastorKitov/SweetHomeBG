@@ -9,6 +9,7 @@ import Details from './components/Details/Details';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import MyApartaments from './components/MyApartaments/MyApartaments';
+import LikedApartaments from './components/LikedApartaments/LikedApartaments';
 
 import Testi from './components/Testi/Testi';
 
@@ -31,7 +32,8 @@ function App() {
       <Route path="/user/register" exact component={Register}/>
       <Route path="/user/login" exact component={Login}/>
       <Route path="/test" exact component={Testi}/>
-      <Route path="/apartaments/:id" exact component={MyApartaments}/>
+      <Route path="/apartaments/mine/:id" exact component={MyApartaments}/>
+      <Route path="/apartaments/liked/:id" exact component={LikedApartaments}/>
       </Switch>
     </div>
     </UserContext.Provider>
