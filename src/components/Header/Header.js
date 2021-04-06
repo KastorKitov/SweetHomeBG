@@ -19,12 +19,16 @@ function Header(props) {
             <nav className={style.navbar}>
             {onLogOut?<Redirect to="/"/>:null}
                 <section className={style.navbarDashboard}>
+                    {loggedIn?
                     <div className={style.firstBar}>
                         <Link className={style.sweetHome} to='/'>SweetHome.BG</Link>
                         <Link className={style.button} to="/">My Apartaments</Link>
                         <Link className={style.button} to="/">Liked Apartaments</Link>
                         <Link className={style.button} to="/apartaments/sell">Sell Apartament</Link>
                     </div>
+                    :<div className={style.firstBar}>
+                        <Link className={style.sweetHome} to='/'>SweetHome.BG</Link>
+                        </div>}
                     <div className={style.secoundBar}>
                      {user?<ul>
                             <li className={style.wellcome}>Welcome, {user ? user.username : "Guest"}!</li>

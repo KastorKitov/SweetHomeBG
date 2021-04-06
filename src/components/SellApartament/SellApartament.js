@@ -1,12 +1,16 @@
 import style from './SellApartament.module.css';
 import {Redirect} from 'react-router-dom';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
 import Footer from '../Footer/Footer';
-
+import UserContext from '../ContextUserInformation';
+import LoggedInContext from '../ContextLoggedIn';
 
 function SellApartament(props) {
 
     const [created,setCreated] = useState(false);
+    const [loggedIn,setLoggedIn] = useContext(LoggedInContext);
+    const [user, setUser] = useContext(UserContext);
+    console.log(loggedIn)
 
     const onSellHandler = (e) => {
         e.preventDefault();
@@ -20,6 +24,7 @@ function SellApartament(props) {
                 {price:e.target.price.value},
                 {imageURL:e.target.imageURL.value},
                 {description:e.target.description.value},
+                {owner:user._id}
             ])
         })
         .then(res=>res.json())
@@ -31,6 +36,7 @@ function SellApartament(props) {
     };
     return (
         <div>
+            {!loggedIn?<Redirect to="/"/>:null}
             {created?<Redirect to="/"/>:null}
             <h1 className={style.headerForSell}>Sell your apartament or house</h1>
             <form className={style.form} onSubmit={onSellHandler}>
