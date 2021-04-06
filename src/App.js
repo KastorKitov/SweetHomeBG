@@ -1,5 +1,5 @@
 import './App.css';
-
+import { useState , useEffect} from 'react';
 import {Route,Switch} from 'react-router-dom';
 import Header from './components/Header/Header';
 import Main from './components/Main/Main';
@@ -8,9 +8,16 @@ import Details from './components/Details/Details';
 import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import Testi from './components/Testi/Testi';
+import UserContext from './components/ContextUserInformation';
+import LoggedInContext from './components/ContextLoggedIn';
 
 function App() {
+
+  const [loggedIn,setLoggedIn] = useState(false);
+  const [user,setUser] = useState(null);
   return (
+    <LoggedInContext.Provider value={[loggedIn,setLoggedIn]}>
+    <UserContext.Provider value={[user,setUser]}>
     <div className="container">
       <Header/>
       <Switch>
@@ -22,6 +29,8 @@ function App() {
       <Route path="/test" exact component={Testi}/>
       </Switch>
     </div>
+    </UserContext.Provider>
+    </LoggedInContext.Provider>
   );
 }
 

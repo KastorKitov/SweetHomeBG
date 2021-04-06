@@ -1,11 +1,23 @@
 import style from './Header.module.css';
-import {Link} from 'react-router-dom';
+import { Link , Redirect} from 'react-router-dom';
+import UserContext from '../ContextUserInformation';
+import LoggedInContext from '../ContextLoggedIn';
+import { useContext , useState } from 'react';
 
 function Header(props) {
+    const [user, setUser] = useContext(UserContext);
+    const [loggedIn,setLoggedIn] = useContext(LoggedInContext);
+    const [onLogOut,setOnLogOut] = useState(false)
+    const logOutHandler = () =>{
+        setUser(null)
+        setLoggedIn(false)
+        setOnLogOut(true)
+        
+    }
     return (
         <header className={style.siteHeader}>
             <nav className={style.navbar}>
-
+            {onLogOut?<Redirect to="/"/>:null}
                 <section className={style.navbarDashboard}>
                     <div className={style.firstBar}>
                         <Link className={style.sweetHome} to='/'>SweetHome.BG</Link>
@@ -14,17 +26,19 @@ function Header(props) {
                         <Link className={style.button} to="/apartaments/sell">Sell Apartament</Link>
                     </div>
                     <div className={style.secoundBar}>
-                        <ul>
-                            <li className={style.wellcome}>Welcome, username!</li>
-                            <li><Link to="/test"><i className={style.button}></i> Logout</Link></li>
-                        </ul>
+                     {user?<ul>
+                            <li className={style.wellcome}>Welcome, {user ? user.username : "Guest"}!</li>
+                            {user ? <li><Link to="/" onClick={logOutHandler}><i className={style.button}></i> Logout</Link></li> : null}
+                        </ul>:<ul><li><a href="/user/register"><i className={style.a}></i> Register</a></li>
+                        <li><a href="/user/login"><i className={style.a}></i> Login</a></li></ul>}
+                        {/* {!user ? <ul><li><a href="/user/register"><i className={style.a}></i> Register</a></li>
+                        <li><a href="/user/login"><i className={style.a}></i> Login</a></li></ul> :null} */}
                     </div>
                 </section>
                 <section className={style.navbarAnonymous}>
-                            <ul>
-                            <li><a href="/user/register"><i className={style.a}></i> Register</a></li>
-                            <li><a href="/user/login"><i className={style.a}></i> Login</a></li>
-                        </ul>
+                    {/* {!user ? <ul><li><a href="/user/register"><i className={style.a}></i> Register</a></li>
+                        <li><a href="/user/login"><i className={style.a}></i> Login</a></li></ul> :null} */}
+                        <ul> <li><a style={{ background: 234465 }}></a></li></ul>
                 </section>
             </nav>
         </header>

@@ -97,7 +97,7 @@
     margin-right: 2rem;
   }
   .navbarAnonymous ul{
-      display: flex;
+      display:flex;
   }
 
   
@@ -133,4 +133,8 @@
   }
   .wellcome{
     font-size: 2rem;
+  }
+
+  .ignore{
+    background-color: #234465;
   }

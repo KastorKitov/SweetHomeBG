@@ -1,11 +1,13 @@
 import style from './Login.module.css';
 import Footer from '../Footer/Footer';
 import {Redirect} from 'react-router-dom';
-import { useState } from 'react';
+import { useState,useContext } from 'react';
+import UserContext from '../ContextUserInformation';
+import LoggedInContext from '../ContextLoggedIn';
 
 function Login(props) {
-
-    const [isLogged,setIsLogged] = useState(false)
+    const [user,setUser] = useContext(UserContext);
+    const [loggedIn,setLoggedIn] = useContext(LoggedInContext);
 
     const  onLoginHandler = async (e) => {
         e.preventDefault()
@@ -19,14 +21,23 @@ function Login(props) {
 
         const response = await promise.json();
 
-        if(response.username){
-            setIsLogged(true);
-        };
+        if(response){
+            console.log(response)
+            setUser(response);
+            setLoggedIn(true);
+        }else{
+            console.log('NO USER')
+        }
+        // setUsername(response.username);
+
+        // if(response.username){
+        //     setIsLogged(true);
+        // };
     };
 
     return (
         <div>
-            {isLogged?<Redirect to="/"/>:null   }
+            {loggedIn?<Redirect to="/"/>:null}
             <h1 className={style.headerForLogin}>Login in SweetHome.BG</h1>
             <form className={style.form} onSubmit={onLoginHandler} >
                 <label htmlFor="username" className={style.login}>Username</label>
