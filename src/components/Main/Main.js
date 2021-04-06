@@ -45,7 +45,7 @@ function Main(props) {
                 <option value="3">Three Rooms</option>
             </select>
         </span>
-        <input type="text" className={style.searchTerm} name="search" placeholder="Apartament Name..."/>
+        <input type="text" className={style.searchTerm} name="search" placeholder="Property Name..."/>
         <input type="submit" className={style.searchButton} value="Search"/>
       </form>
         </main>

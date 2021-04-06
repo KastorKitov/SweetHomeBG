@@ -21,10 +21,11 @@ function Header(props) {
                 <section className={style.navbarDashboard}>
                     {loggedIn?
                     <div className={style.firstBar}>
-                        <Link className={style.sweetHome} to='/'>SweetHome.BG</Link>
-                        <Link className={style.button} to="/">My Apartaments</Link>
-                        <Link className={style.button} to="/">Liked Apartaments</Link>
-                        <Link className={style.button} to="/apartaments/sell">Sell Apartament</Link>
+                        <Link className={style.sweetHome} to="/">SweetHome.BG</Link>
+                        <Link className={style.button} to="/">Browse Properties</Link>
+                        <Link className={style.button} to={`/apartaments/${user._id}`}>My Properties</Link>
+                        <Link className={style.button} to="/">Liked Properties</Link>
+                        <Link className={style.button} to="/apartaments/sell">Sell Property</Link>
                     </div>
                     :<div className={style.firstBar}>
                         <Link className={style.sweetHome} to='/'>SweetHome.BG</Link>

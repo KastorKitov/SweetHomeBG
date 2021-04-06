@@ -1,6 +1,7 @@
 import style from "./ApartamentPiece.module.css";
 import {Link} from 'react-router-dom';
-
+import LoggedInContext from '../ContextLoggedIn';
+import { useContext } from 'react';
 
 function ApartamentPiece({
     id,
@@ -10,6 +11,7 @@ function ApartamentPiece({
     imageURL,
     city
 }) {
+    const [loggedIn,setLoggedIn] = useContext(LoggedInContext);
 
     return (
         <div className={style.cube}>
@@ -19,7 +21,7 @@ function ApartamentPiece({
                 <p><span className={style.spanDif}>Rooms:</span>{rooms}</p>
                 <p><span className={style.spanDif}>Price:</span> {price} euro</p>
                 <Link className={style.btn} to={`/apartaments/details/${id}`}>Details</Link>
-                <Link className={style.btn} to="/">Like</Link>
+                {loggedIn?<Link className={style.btn} to="/">Like</Link>:null}
         </div>
     )
 };

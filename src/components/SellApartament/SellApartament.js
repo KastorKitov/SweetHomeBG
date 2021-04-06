@@ -10,7 +10,6 @@ function SellApartament(props) {
     const [created,setCreated] = useState(false);
     const [loggedIn,setLoggedIn] = useContext(LoggedInContext);
     const [user, setUser] = useContext(UserContext);
-    console.log(loggedIn)
 
     const onSellHandler = (e) => {
         e.preventDefault();
@@ -29,10 +28,10 @@ function SellApartament(props) {
         })
         .then(res=>res.json())
         .then(res=> {
-            console.log('yes')
+            console.log('created!')
                 setCreated(true);
             })
-        .catch(err=>console.log('something went wrong'))
+        .catch(err=>console.log('something went wrong!'))
     };
     return (
         <div>
