@@ -15,13 +15,7 @@ function ApartamentPiece({
     const [loggedIn, setLoggedIn] = useContext(LoggedInContext);
     const [user, setUser] = useContext(UserContext);
     const [isLiked, setIsLiked] = useState(null);
-    useEffect(() => {
-        if (loggedIn) {
-            if (user.liked.includes(id)) {
-                setIsLiked(true)
-            }
-        }
-    }, [user]);
+
     const likeHandler = (e) => {
         // e.preventDefault();
         fetch('http://localhost:5000/apartaments/liked', {
@@ -43,6 +37,18 @@ function ApartamentPiece({
             .then(response => setUser(response))
             .then(setIsLiked(oldState => oldState=false))
     }
+    useEffect(() => {
+        if (loggedIn) {
+            if(user.liked.length==1){
+                if(user.liked[0]._id == id){
+                    setIsLiked(true)
+                };
+            };
+            if (user.liked.includes(id)) {
+                setIsLiked(true)
+            }
+        };
+    }, []);
 
 
     return (
@@ -53,7 +59,7 @@ function ApartamentPiece({
             <p><span className={style.spanDif}>Rooms:</span>{rooms}</p>
             <p><span className={style.spanDif}>Price:</span> {price} euro</p>
             <Link className={style.btn} to={`/apartaments/details/${id}`}>Details</Link>
-            {loggedIn ? isLiked ? <Link className={style.btn} onClick={UnLikeHandler}>Unlike</Link> : <Link className={style.btn} onClick={likeHandler}>Like</Link> : null}
+            {loggedIn ? isLiked ? <Link style={{backgroundColor:'#138fd6'}} className={style.btn} onClick={UnLikeHandler}>Unlike</Link> : <Link className={style.btn} onClick={likeHandler}>Like</Link> : null}
             {/* {loggedIn?<Link className={style.btn} onClick={likeHandler}>Like</Link>:null} */}
         </div>
     )
