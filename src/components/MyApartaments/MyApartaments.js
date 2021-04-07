@@ -1,6 +1,6 @@
 import style from './MyApartaments.module.css';
 import Footer from '../Footer/Footer';
-import ApartamentPiece from '../ApartamentPiece/ApartamentPiece';
+import MyApartamentPiece from '../MyApartamentsPiece/MyApartamentsPiece';
 
 import { useState,useContext, useEffect } from 'react';
 import UserContext from '../ContextUserInformation';
@@ -20,16 +20,27 @@ function MyApartaments(props) {
         .catch(err => console.log('cannot get Apartaments from DB'));
     },[]);
 
+    function handleRemove(id) {
+        let newApartaments = apartaments.filter((item) => item._id !== id);
+        setApartament(newApartaments);
+        fetch("http://localhost:5000/apartaments/delete",{
+            method:"POST",
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify([id])
+        }).then(console.log('item deleted!'))
+      }
+
     return (
         <div>
             <h1 className={style.headerForLogin}>My Apartaments and Houses</h1>
-            {apartaments.map(x=>{ return(<ApartamentPiece key={x._id}
+            {apartaments.map(x=>{ return(<MyApartamentPiece key={x._id}
             id={x._id}
             name={x.name}
             rooms={x.rooms}
             price={x.price}
             city={x.city}
             imageURL={x.imageURL}
+            handleRemove={handleRemove}
         />)})
         }
             <Footer />
