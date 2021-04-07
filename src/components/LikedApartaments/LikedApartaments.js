@@ -1,6 +1,6 @@
 import style from './LikedApartaments.module.css';
 import Footer from '../Footer/Footer';
-import ApartamentPiece from '../ApartamentPiece/ApartamentPiece';
+import LikedApartamentPiece from '../LikedApartamentPiece/LikedApartamentPiece';
 
 import { useState,useContext, useEffect } from 'react';
 import UserContext from '../ContextUserInformation';
@@ -23,7 +23,7 @@ function MyApartaments(props) {
     return (
         <div>
             <h1 className={style.headerForLogin}>Liked Apartaments and Houses</h1>
-            {apartaments.map(x=>{ return(<ApartamentPiece key={x._id}
+            {apartaments.map(x=>{ return(<LikedApartamentPiece key={x._id}
             id={x._id}
             name={x.name}
             rooms={x.rooms}

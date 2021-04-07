@@ -22,7 +22,7 @@ function Login(props) {
         const response = await promise.json();
 
         if(response){
-            console.log(response)
+            console.log('Succesfull logged!')
             setUser(response);
             setLoggedIn(true);
         }else{
