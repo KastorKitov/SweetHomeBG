@@ -1,0 +1,60 @@
+.headerForSell{
+    background: cadetblue;
+    color: white;
+    padding: 12px;
+    text-align: center;
+    padding: 20px;
+    width: 36%;
+    margin: auto;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+.form {
+    border-radius: 5px;
+    padding: 20px;
+    width: 36%;
+    margin: auto;
+}
+form label.sell {
+    background: cadetblue;
+    color: white;
+    padding: 12px;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+}
+form label.sell:hover {
+    background: #234465;
+}
+input.inputForSale,
+select,
+textarea {
+    width: 100%;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    padding: 12px 20px 12px 12px;
+    border-radius: 0 4px 4px 4px;
+    margin: 8px 0 2em;
+}
+input.name {
+    width: 100%;
+}
+input.sellSubmit {
+    background-color: cadetblue;
+    border: none;
+    padding: 8px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    width: 50%;
+    margin: 0px 5px 5px 25%;
+    color: white;
+    text-transform: uppercase;
+    border-radius: 4px;
+}
+
+input[type=submit]:hover {
+    background-color: #234465;
+    cursor: pointer;
+}

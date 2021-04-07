@@ -56,7 +56,7 @@ function MyApartamentPiece({
             <p><span className={style.spanDif}>City:</span> {city}</p>
             <p><span className={style.spanDif}>Rooms:</span>{rooms}</p>
             <p><span className={style.spanDif}>Price:</span> {price} euro</p>
-            <a className={style.btn} to={`/apartaments/edit/${id}`}>Edit</a>
+            <Link className={style.btn} to={`/apartaments/edit/${id}`}>Edit</Link>
             <a style={{backgroundColor:'#cc3333'}} className={style.btn} onClick={()=>handleRemove(id)}>Remove</a>
             {/* {loggedIn?<Link className={style.btn} onClick={likeHandler}>Like</Link>:null} */}
         </div>

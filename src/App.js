@@ -10,6 +10,7 @@ import Register from './components/Register/Register';
 import Login from './components/Login/Login';
 import MyApartaments from './components/MyApartaments/MyApartaments';
 import LikedApartaments from './components/LikedApartaments/LikedApartaments';
+import EditPage from './components/EditPage/EditPage';
 
 import Testi from './components/Testi/Testi';
 
@@ -34,6 +35,7 @@ function App() {
       <Route path="/test" exact component={Testi}/>
       <Route path="/apartaments/mine/:id" exact component={MyApartaments}/>
       <Route path="/apartaments/liked/:id" exact component={LikedApartaments}/>
+      <Route path="/apartaments/edit/:id" exact component={EditPage}/>
       </Switch>
     </div>
     </UserContext.Provider>

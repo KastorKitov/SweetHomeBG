@@ -32,7 +32,7 @@ function MyApartaments(props) {
             imageURL={x.imageURL}
         />)})
         }
-            <Footer />
+            <Footer style={{position:'absolute'}}/>
         </div>
     )
 }
