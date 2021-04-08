@@ -1,7 +1,7 @@
 import style from './MyApartaments.module.css';
 import Footer from '../Footer/Footer';
 import MyApartamentPiece from '../MyApartamentsPiece/MyApartamentsPiece';
-
+import {Redirect} from 'react-router-dom';
 import { useState,useContext, useEffect } from 'react';
 import UserContext from '../ContextUserInformation';
 import LoggedInContext from '../ContextLoggedIn';
@@ -32,6 +32,7 @@ function MyApartaments(props) {
 
     return (
         <div>
+            {!loggedIn?<Redirect to="/"/>:null}
             <h1 className={style.headerForLogin}>My Apartaments and Houses</h1>
             {apartaments.map(x=>{ return(<MyApartamentPiece key={x._id}
             id={x._id}

@@ -34,6 +34,7 @@ p.name {
 a.btn:hover{
     background-color: #138fd6; /* Green */
   color: white;
+  cursor: pointer;
 }
 
 a.btn {

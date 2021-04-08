@@ -5,6 +5,7 @@ import LikedApartamentPiece from '../LikedApartamentPiece/LikedApartamentPiece';
 import { useState,useContext, useEffect } from 'react';
 import UserContext from '../ContextUserInformation';
 import LoggedInContext from '../ContextLoggedIn';
+import {Redirect} from 'react-router-dom';
 
 function MyApartaments(props) {
 
@@ -22,6 +23,7 @@ function MyApartaments(props) {
 
     return (
         <div>
+            {!loggedIn?<Redirect to="/"/>:null}
             <h1 className={style.headerForLogin}>Liked Apartaments and Houses</h1>
             {apartaments.map(x=>{ return(<LikedApartamentPiece key={x._id}
             id={x._id}

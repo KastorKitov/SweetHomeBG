@@ -58,3 +58,13 @@ input[type=submit]:hover {
     background-color: #234465;
     cursor: pointer;
 }
+.errorMessage{
+    background-color: red;
+    color: white;
+    width: 15cm;
+    text-align: center;
+    padding: 0.3cm;
+    margin: auto;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+}

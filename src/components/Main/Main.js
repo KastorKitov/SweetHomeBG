@@ -56,6 +56,7 @@ function Main(props) {
             price={x.price}
             city={x.city}
             imageURL={x.imageURL}
+            owner={x.owner}
         />)})
         }
         <Footer/>

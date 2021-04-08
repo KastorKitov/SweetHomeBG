@@ -59,7 +59,7 @@ function LikedApartamentPiece({
             <p><span className={style.spanDif}>Rooms:</span>{rooms}</p>
             <p><span className={style.spanDif}>Price:</span> {price} euro</p>
             <Link className={style.btn} to={`/apartaments/details/${id}`}>Details</Link>
-            {loggedIn ? isLiked ? <Link style={{backgroundColor:'#138fd6'}} className={style.btn} onClick={UnLikeHandler}>Unlike</Link> : <Link className={style.btn} onClick={likeHandler}>Like</Link> : null}
+            {loggedIn ? isLiked ? <a style={{backgroundColor:'#138fd6'}} className={style.btn} onClick={UnLikeHandler}>Unlike</a> : <a className={style.btn} onClick={likeHandler}>Like</a> : null}
             {/* {loggedIn?<Link className={style.btn} onClick={likeHandler}>Like</Link>:null} */}
         </div>
     )

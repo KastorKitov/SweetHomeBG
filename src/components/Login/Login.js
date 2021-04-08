@@ -8,6 +8,7 @@ import LoggedInContext from '../ContextLoggedIn';
 function Login(props) {
     const [user,setUser] = useContext(UserContext);
     const [loggedIn,setLoggedIn] = useContext(LoggedInContext);
+    const [errorMessage, setErrorMessage] = useState(null);
 
     const  onLoginHandler = async (e) => {
         e.preventDefault()
@@ -16,10 +17,15 @@ function Login(props) {
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify([e.target.username.value, e.target.password.value])
         })
-        const authToken = promise.headers.get('Token');
+        if(promise){
+            const response = await promise.json()
+            if(response.error=='error'){
+                setErrorMessage('Incorrect Username or Password!');
+                setTimeout(() => setErrorMessage(null), 3000);
+                return;
+            }else{
+                const authToken = promise.headers.get('Token');
         document.cookie = `x-auth-token=${authToken}`;
-
-        const response = await promise.json();
 
         if(response){
             console.log('Succesfull logged!')
@@ -28,6 +34,9 @@ function Login(props) {
         }else{
             console.log('NO USER')
         }
+            }
+        }
+
         // setUsername(response.username);
 
         // if(response.username){
@@ -39,6 +48,7 @@ function Login(props) {
         <div>
             {loggedIn?<Redirect to="/"/>:null}
             <h1 className={style.headerForLogin}>Login in SweetHome.BG</h1>
+            {errorMessage ? <div className={style.errorMessage}>{errorMessage}</div> : null}
             <form className={style.form} onSubmit={onLoginHandler} >
                 <label htmlFor="username" className={style.login}>Username</label>
                 <input className={style.inputForLogin} type="text" name="username" placeholder="username..." />
