@@ -6,6 +6,7 @@
     padding: 20px;
     width: 36%;
     margin: auto;
+    margin-bottom: 0.3cm;
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
 }
@@ -14,6 +15,7 @@
     padding: 20px;
     width: 36%;
     margin: auto;
+    margin-bottom: 8.7cm;
 }
 form label.login {
     background: cadetblue;
@@ -35,6 +37,9 @@ textarea {
     padding: 12px 20px 12px 12px;
     border-radius: 0 4px 4px 4px;
     margin: 8px 0 2em;
+}
+input.inputForLogin{
+    margin-bottom: 1.1cm;
 }
 input.name {
     width: 100%;
@@ -61,10 +66,13 @@ input[type=submit]:hover {
 .errorMessage{
     background-color: red;
     color: white;
+    position: absolute;
+    right:18.5cm;
+    top:6.1cm;
     width: 15cm;
+    font-size: 20px;
     text-align: center;
     padding: 0.3cm;
     margin: auto;
-    border-bottom-left-radius: 12px;
-    border-bottom-right-radius: 12px;
+    border-radius: 12px;
 }

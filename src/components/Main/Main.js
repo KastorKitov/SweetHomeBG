@@ -43,6 +43,8 @@ function Main(props) {
                 <option value="1">One Room</option>
                 <option value="2">Two Rooms</option>
                 <option value="3">Three Rooms</option>
+                <option value="4">Four Rooms</option>
+                <option value="5">Five Rooms</option>
             </select>
         </span>
         <input type="text" className={style.searchTerm} name="search" placeholder="Property Name..."/>

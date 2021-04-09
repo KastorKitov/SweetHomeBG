@@ -14,17 +14,17 @@ function Register(props) {
         e.preventDefault();
 
         if (e.target.username.value.length < 5&&e.target.password.value.length < 5) {
-            setErrorMessage('Username and Password under 5 characters!')
+            setErrorMessage('Username and Password are under 5 characters!')
             setTimeout(() => setErrorMessage(null), 3000);
             return
         }
         if (e.target.username.value.length < 5) {
-            setErrorMessage('Username under 5 characters!')
+            setErrorMessage('Username is under 5 characters!')
             setTimeout(() => setErrorMessage(null), 3000);
             return
         };
         if (e.target.password.value.length < 5) {
-            setErrorMessage('Password under 5 characters!')
+            setErrorMessage('Password is under 5 characters!')
             setTimeout(() => setErrorMessage(null), 3000);
             return
         }
@@ -54,7 +54,7 @@ function Register(props) {
             .catch(err => console.log('something went wrong'))
     };
     return (
-        <div>
+        <div>   
             {loggedIn ? <Redirect to="/" /> : null}
             {registered ? <Redirect to="/user/login" /> : null}
             <h1 className={style.headerForRegister}>Register in SweetHome.BG</h1>

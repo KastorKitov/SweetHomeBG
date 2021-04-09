@@ -11,6 +11,7 @@ import Login from './components/Login/Login';
 import MyApartaments from './components/MyApartaments/MyApartaments';
 import LikedApartaments from './components/LikedApartaments/LikedApartaments';
 import EditPage from './components/EditPage/EditPage';
+import ErrorPage from './components/ErrorPage/ErrorPage';
 
 import Testi from './components/Testi/Testi';
 
@@ -36,6 +37,8 @@ function App() {
       <Route path="/apartaments/mine/:id" exact component={MyApartaments}/>
       <Route path="/apartaments/liked/:id" exact component={LikedApartaments}/>
       <Route path="/apartaments/edit/:id" exact component={EditPage}/>
+      <Route path="*" component={ErrorPage}/>
+
       </Switch>
     </div>
     </UserContext.Provider>

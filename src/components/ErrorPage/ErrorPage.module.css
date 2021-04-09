@@ -1,0 +1,23 @@
+.msg {
+    text-align: center;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 2rem;
+    position:absolute;
+    left: 16%;
+    top: 45%;
+    width: 75%;
+  }
+a {
+  text-decoration: none;
+  color: rgb(21, 93, 247);
+}
+
+a:hover {
+  text-decoration: underline;
+}
+.image{
+  left: 19.5cm;
+  top: 4cm;
+  width: 30%;
+  position:absolute;
+}

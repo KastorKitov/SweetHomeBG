@@ -10,9 +10,36 @@ function SellApartament(props) {
     const [created,setCreated] = useState(false);
     const [loggedIn,setLoggedIn] = useContext(LoggedInContext);
     const [user, setUser] = useContext(UserContext);
+    const [errorMessage,setErrorMessage] = useState(null);
 
     const onSellHandler = (e) => {
         e.preventDefault();
+        
+        if(e.target.name.value.length<6){
+            setErrorMessage('Title Must Be Atleast 6 Characters Long!');
+            setTimeout(() => setErrorMessage(null), 3000);
+            return;
+        }
+        if(e.target.rooms.value.length!=1){
+            setErrorMessage('Please Enter Rooms Number!');
+            setTimeout(() => setErrorMessage(null), 3000);
+            return;
+        }
+        if(e.target.city.value.length<4){
+            setErrorMessage('Please Enter City!');
+            setTimeout(() => setErrorMessage(null), 3000);
+            return;
+        }
+        if(e.target.price.value.length<3){
+            setErrorMessage('Please Enter Price!');
+            setTimeout(() => setErrorMessage(null), 3000);
+            return;
+        }
+        if(e.target.imageURL.value.length<10){
+            setErrorMessage('Please Enter ImageURL!');
+            setTimeout(() => setErrorMessage(null), 3000);
+            return;
+        }
         fetch('http://localhost:5000/apartaments/sell', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -38,16 +65,17 @@ function SellApartament(props) {
             {!loggedIn?<Redirect to="/"/>:null}
             {created?<Redirect to="/"/>:null}
             <h1 className={style.headerForSell}>Sell your apartament or house</h1>
+            {errorMessage?<div className={style.errorMessage}>{errorMessage}</div> : null}
             <form className={style.form} onSubmit={onSellHandler}>
-                <label htmlFor="name" className={style.sell}>Title</label>
+                <label htmlFor="name" className={style.sell}>Title*</label>
                 <input  className={style.inputForSale} type="text" name="name" placeholder="Title..." />
-                <label htmlFor="Rooms" className={style.sell}>Rooms</label>
+                <label htmlFor="Rooms" className={style.sell}>Rooms*</label>
                 <input className={style.inputForSale} type="number" name="rooms"  placeholder="Rooms..." />
-                <label htmlFor="city" className={style.sell}>City</label>
+                <label htmlFor="city" className={style.sell}>City*</label>
                 <input className={style.inputForSale} type="text" name="city"  placeholder="City..." />
-                <label htmlFor="Price" className={style.sell}>Price</label>
+                <label htmlFor="Price" className={style.sell}>Price*</label>
                 <input className={style.inputForSale} type="number" name="price"  placeholder="Price..." />
-                <label htmlFor="imageURL" className={style.sell}>Image URL</label>
+                <label htmlFor="imageURL" className={style.sell}>Image URL*</label>
                 <input  className={style.inputForSale} type="text" name="imageURL" placeholder="Image URL" />
                 <label htmlFor="description" className={style.sell}>Description</label>
                 <textarea type="text" name="description"  placeholder="Description..." />

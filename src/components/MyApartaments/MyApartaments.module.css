@@ -1,7 +1,6 @@
 .headerForLogin{
     background: cadetblue;
     color: white;
-    padding: 12px;
     text-align: center;
     padding: 20px;
     width: 36%;
@@ -10,3 +9,22 @@
     border-bottom-left-radius: 12px;
     border-bottom-right-radius: 12px;
 }
+
+div.noApartaments {
+    color:white;
+    font-size: 32px;
+    font-weight:700;
+    text-align: center;
+    display: block;
+    margin: auto;
+    width: 500px;
+    background-color: #234465;
+    padding: 2em;
+    border-radius: 12px;
+    margin-bottom: 8.8cm;
+    
+}
+
+
+
+

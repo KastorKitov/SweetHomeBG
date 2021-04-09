@@ -11,6 +11,7 @@ function Header(props) {
     const logOutHandler = () =>{
         setUser(null)
         setLoggedIn(false)
+        document.cookie = `x-auth-token=`;
         setOnLogOut(true)
         
     }

@@ -76,3 +76,54 @@ span.spanDif {
         opacity: 0;
     }
 }
+.deletebtn{
+    background-color: red;
+}
+
+
+/* Set a style for all buttons */
+button {
+  background-color: #138fd6;
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+}
+
+button:hover {
+  opacity:1;
+}
+
+/* Float cancel and delete buttons and add an equal width */
+.cancelbtn, .deletebtn {
+  float: left;
+  width: 50%;
+}
+
+/* Add a color to the cancel button */
+.cancelbtn {
+  background-color: #138fd6;
+  color: black;
+}
+
+/* Add a color to the delete button */
+.deletebtn {
+  background-color: #cc3333;
+}
+
+/* Add padding and center-align text to the container */
+.container {
+  padding: 16px;
+  text-align: center;
+}
+.modalContent {
+    position: absolute;
+    background-color: #fefefe;
+    margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+    border: 3px solid #888;
+    left: 12cm;
+    width: 30cm /* Could be more or less, depending on screen size */
+  }

@@ -13,11 +13,18 @@ function MyApartaments(props) {
     const [loggedIn,setLoggedIn] = useContext(LoggedInContext);
 
     const [apartaments, setApartament] = useState([]);
+    const [noApartaments,setNoApartaments] = useState(null)
 
     useEffect(()=>{
         fetch(`http://localhost:5000/apartaments/liked/${user._id}`)
         .then(res => res.json())
-        .then(res => setApartament(res))
+        .then(res =>{
+            setApartament(res)
+            if(res.length<1){
+                console.log(apartaments)
+                setNoApartaments(true);
+            };
+        })
         .catch(err => console.log('cannot get Apartaments from DB'));
     },[]);
 
@@ -25,6 +32,7 @@ function MyApartaments(props) {
         <div>
             {!loggedIn?<Redirect to="/"/>:null}
             <h1 className={style.headerForLogin}>Liked Apartaments and Houses</h1>
+            {noApartaments?<div className={style.noApartaments}>No Apartaments Liked!</div>:null}
             {apartaments.map(x=>{ return(<LikedApartamentPiece key={x._id}
             id={x._id}
             name={x.name}
