@@ -4,16 +4,23 @@ import { useState, useContext } from 'react';
 import Footer from '../Footer/Footer';
 import LoggedInContext from '../ContextLoggedIn';
 
-function Register(props) {
+function Register() {
 
     const [registered, setRegistered] = useState(false);
-    const [loggedIn, setLoggedIn] = useContext(LoggedInContext);
+    const [loggedIn,] = useContext(LoggedInContext);
     const [errorMessage, setErrorMessage] = useState(null);
 
     const onRegisterHandler = (e) => {
         e.preventDefault();
 
-        if (e.target.username.value.length < 5&&e.target.password.value.length < 5) {
+        let userNameRegex = /^[a-zA-Z0-9]+$/;
+        let validUsername = e.target.username.value.match(userNameRegex);
+        if (validUsername === null) {
+            setErrorMessage('Username is Incorrect!')
+            setTimeout(() => setErrorMessage(null), 3000);
+            return
+        }
+        if (e.target.username.value.length < 5 && e.target.password.value.length < 5) {
             setErrorMessage('Username and Password are under 5 characters!')
             setTimeout(() => setErrorMessage(null), 3000);
             return
@@ -44,8 +51,9 @@ function Register(props) {
         })
             .then(res => res.json())
             .then(res => {
-                if(res == 'Invalid'){
+                if (res === 'Invalid') {
                     setErrorMessage('Username alredy in use!')
+                    setTimeout(() => setErrorMessage(null), 3000);
                     return
                 }
                 console.log('succesfull registered!')
@@ -54,7 +62,7 @@ function Register(props) {
             .catch(err => console.log('something went wrong'))
     };
     return (
-        <div>   
+        <div>
             {loggedIn ? <Redirect to="/" /> : null}
             {registered ? <Redirect to="/user/login" /> : null}
             <h1 className={style.headerForRegister}>Register in SweetHome.BG</h1>

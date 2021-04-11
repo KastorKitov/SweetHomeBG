@@ -4,7 +4,7 @@ import UserContext from '../ContextUserInformation';
 import LoggedInContext from '../ContextLoggedIn';
 import { useContext , useState } from 'react';
 
-function Header(props) {
+function Header() {
     const [user, setUser] = useContext(UserContext);
     const [loggedIn,setLoggedIn] = useContext(LoggedInContext);
     const [onLogOut,setOnLogOut] = useState(false)

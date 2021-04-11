@@ -1,7 +1,7 @@
 import style from './ErrorPage.module.css'
 import { Link } from 'react-router-dom';
 
-function ErrorPage(props) {
+function ErrorPage() {
     return (
         <div>
             <img className={style.image} src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS91om5tKQBy3nhxmjLa_Qlg1q10_ujWIsFYg&usqp=CAU' alt="404"/>

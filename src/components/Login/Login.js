@@ -5,8 +5,8 @@ import { useState,useContext } from 'react';
 import UserContext from '../ContextUserInformation';
 import LoggedInContext from '../ContextLoggedIn';
 
-function Login(props) {
-    const [user,setUser] = useContext(UserContext);
+function Login() {
+    const [,setUser] = useContext(UserContext);
     const [loggedIn,setLoggedIn] = useContext(LoggedInContext);
     const [errorMessage, setErrorMessage] = useState(null);
 
@@ -19,7 +19,7 @@ function Login(props) {
         })
         if(promise){
             const response = await promise.json()
-            if(response.error=='error'){
+            if(response.error==='error'){
                 setErrorMessage('Incorrect Username or Password!');
                 setTimeout(() => setErrorMessage(null), 3000);
                 return;
@@ -28,11 +28,9 @@ function Login(props) {
         document.cookie = `x-auth-token=${authToken}`;
 
         if(response){
-            console.log('Succesfull logged!')
             setUser(response);
             setLoggedIn(true);
         }else{
-            console.log('NO USER')
         }
             }
         }

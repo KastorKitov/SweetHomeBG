@@ -2,15 +2,14 @@ import style from './EditPage.module.css';
 import { Redirect } from 'react-router-dom';
 import { useState, useContext, useEffect } from 'react';
 import Footer from '../Footer/Footer';
-import UserContext from '../ContextUserInformation';
 import LoggedInContext from '../ContextLoggedIn';
 
 
 function EditPage({ match }) {
     const [edited, setEdited] = useState(false);
-    const [loggedIn, setLoggedIn] = useContext(LoggedInContext);
-    const [user, setUser] = useContext(UserContext);
-    const [apartament, setApartament] = useState({});
+    const [loggedIn,] = useContext(LoggedInContext);
+    const [, setApartament] = useState({});
+    const [errorMessage,setErrorMessage] = useState(null);
 
     const [Oname,setName] = useState('')
     const [Orooms,setRooms] = useState('')
@@ -20,6 +19,7 @@ function EditPage({ match }) {
     const [Odescription,setDescription] = useState('')
 
     useEffect(()=>{
+        
         fetch('http://localhost:5000/apartaments/edit', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -40,6 +40,31 @@ function EditPage({ match }) {
 
     const onEditedHandler = (e) =>{
         e.preventDefault();
+        if(e.target.name.value.length<6){
+            setErrorMessage('Title Must Be Atleast 6 Characters Long!');
+            setTimeout(() => setErrorMessage(null), 3000);
+            return;
+        }
+        if(e.target.rooms.value.length!==1){
+            setErrorMessage('Please Enter Rooms Number!');
+            setTimeout(() => setErrorMessage(null), 3000);
+            return;
+        }
+        if(e.target.city.value.length<4){
+            setErrorMessage('Please Enter City!');
+            setTimeout(() => setErrorMessage(null), 3000);
+            return;
+        }
+        if(e.target.price.value.length<3){
+            setErrorMessage('Please Enter Price!');
+            setTimeout(() => setErrorMessage(null), 3000);
+            return;
+        }
+        if(e.target.imageURL.value.length<10){
+            setErrorMessage('Please Enter ImageURL!');
+            setTimeout(() => setErrorMessage(null), 3000);
+            return;
+        }
         fetch('http://localhost:5000/apartaments/editing', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -62,6 +87,7 @@ function EditPage({ match }) {
             {!loggedIn?<Redirect to="/"/>:null}
             {edited?<Redirect to="/"/>:null}
             <h1 className={style.headerForSell}>Edit your apartament or house</h1>
+            {errorMessage?<div className={style.errorMessage}>{errorMessage}</div> : null}
             <form className={style.form} onSubmit={onEditedHandler}>
                 <label htmlFor="name" className={style.sell}>Title</label>
                 <input  className={style.inputForSale} type="text" name="name" value={Oname} onChange={e=>setName(e.target.value)}  placeholder="Title..." />

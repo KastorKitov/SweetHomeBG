@@ -1,13 +1,14 @@
 import {useContext} from 'react';
-import UserContext from '../ContextUserInformation';
 import LoggedInContext from '../ContextLoggedIn';
+import {Redirect} from 'react-router-dom';
+import Footer from '../Footer/Footer';
 
-function Testi(props){
+function Testi(){
 
-const [loggedIn, setLoggedIn] = useContext(LoggedInContext);
-const [user,setUser] = useContext(UserContext);
+const [loggedIn,] = useContext(LoggedInContext);
 
-    const testHandler = ()=>{
+    const testHandler = (e)=>{
+        e.preventDefault();
         // if(loggedIn){
         //     console.log('it is true')
         //     setLoggedIn(oldState=>oldState=false)
@@ -23,8 +24,10 @@ const [user,setUser] = useContext(UserContext);
 
     return(
         <div>
+            {loggedIn ? <Redirect to="/" /> : null}
         <h1>Hello from Test</h1>
         <button onClick={testHandler}>asd</button>
+        <Footer/>
         </div>
     )
 }

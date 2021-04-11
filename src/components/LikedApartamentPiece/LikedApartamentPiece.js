@@ -12,12 +12,11 @@ function LikedApartamentPiece({
     imageURL,
     city
 }) {
-    const [loggedIn, setLoggedIn] = useContext(LoggedInContext);
+    const [loggedIn,] = useContext(LoggedInContext);
     const [user, setUser] = useContext(UserContext);
     const [isLiked, setIsLiked] = useState(null);
 
     const likeHandler = (e) => {
-        // e.preventDefault();
         fetch('http://localhost:5000/apartaments/liked', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -25,7 +24,7 @@ function LikedApartamentPiece({
         })
             .then(response => response.json())
             .then(response => setUser(response))
-            .then(setIsLiked(oldState => oldState=true))
+            .then(setIsLiked(oldState => oldState = true))
     }
     const UnLikeHandler = (e) => {
         fetch('http://localhost:5000/apartaments/unLiked', {
@@ -35,12 +34,12 @@ function LikedApartamentPiece({
         })
             .then(response => response.json())
             .then(response => setUser(response))
-            .then(setIsLiked(oldState => oldState=false))
+            .then(setIsLiked(oldState => oldState = false))
     }
     useEffect(() => {
         if (loggedIn) {
-            if(user.liked.length==1){
-                if(user.liked[0]._id == id){
+            if (user.liked.length === 1) {
+                if (user.liked[0]._id === id) {
                     setIsLiked(true)
                 };
             };
@@ -59,8 +58,11 @@ function LikedApartamentPiece({
             <p><span className={style.spanDif}>Rooms:</span>{rooms}</p>
             <p><span className={style.spanDif}>Price:</span> {price} euro</p>
             <Link className={style.btn} to={`/apartaments/details/${id}`}>Details</Link>
-            {loggedIn ? isLiked ? <a style={{backgroundColor:'#138fd6'}} className={style.btn} onClick={UnLikeHandler}>Unlike</a> : <a className={style.btn} onClick={likeHandler}>Like</a> : null}
-            {/* {loggedIn?<Link className={style.btn} onClick={likeHandler}>Like</Link>:null} */}
+            {loggedIn ?
+                isLiked ?
+                    <a style={{ backgroundColor: '#138fd6' }} className={style.btn} onClick={UnLikeHandler}>Unlike</a>
+                    : <a className={style.btn} onClick={likeHandler}>Like</a>
+            : null}
         </div>
     )
 };

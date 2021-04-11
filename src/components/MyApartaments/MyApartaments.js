@@ -6,21 +6,19 @@ import { useState, useContext, useEffect } from 'react';
 import UserContext from '../ContextUserInformation';
 import LoggedInContext from '../ContextLoggedIn';
 
-function MyApartaments(props) {
+function MyApartaments() {
 
-    const [user, setUser] = useContext(UserContext);
-    const [loggedIn, setLoggedIn] = useContext(LoggedInContext);
+    const [user,] = useContext(UserContext);
+    const [loggedIn,] = useContext(LoggedInContext);
 
     const [apartaments, setApartament] = useState([]);
     const [noApartaments, setNoApartaments] = useState(null)
     useEffect(() => {
-        console.log(user)
         fetch(`http://localhost:5000/apartaments/id/${user._id}`)
             .then(res => res.json())
             .then(res => {
                 setApartament(res)
                 if (res.length < 1) {
-                    console.log(apartaments)
                     setNoApartaments(true);
                 };
             })
@@ -34,13 +32,13 @@ function MyApartaments(props) {
             method: "POST",
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify([id])
-        }).then(console.log('item deleted!'))
+        });
     };
 
 
     return (
         <div>
-            {!loggedIn ? <Redirect to="/" /> : null}
+            {!loggedIn ? <Redirect to="/user/login" /> : null}
             <h1 className={style.headerForLogin}>My Apartaments and Houses</h1>
             {noApartaments ? <div className={style.noApartaments}>No Apartaments Added!</div> : null}
             {apartaments.map(x => {

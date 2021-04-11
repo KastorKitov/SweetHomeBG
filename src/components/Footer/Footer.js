@@ -1,6 +1,6 @@
 import style from './Footer.module.css';
 
-function Footer(props) {
+function Footer() {
     return (
         <div>
             <div className={style.clear}></div>

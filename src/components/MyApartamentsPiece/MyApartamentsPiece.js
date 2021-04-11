@@ -1,8 +1,7 @@
 import style from "./MyApartamentsPiece.module.css";
 import { Link , Redirect} from 'react-router-dom';
 import LoggedInContext from '../ContextLoggedIn';
-import UserContext from '../ContextUserInformation';
-import { useContext, useEffect, useState } from 'react';
+import { useContext, useState } from 'react';
 
 function MyApartamentPiece({
     id,
@@ -13,13 +12,11 @@ function MyApartamentPiece({
     city,
     handleRemove,
 }) {
-    const [loggedIn, setLoggedIn] = useContext(LoggedInContext);
-    const [user, setUser] = useContext(UserContext);
+    const [loggedIn,] = useContext(LoggedInContext);
     const [removeBlock, setRemoveBlock] = useState(null);
 
     function beforeRemoveHandler() {
         setRemoveBlock(true);
-        console.log(removeBlock)
     };
     function cancelRemove(){
         setRemoveBlock(null);
@@ -46,8 +43,6 @@ function MyApartamentPiece({
             <p><span className={style.spanDif}>Price:</span> {price} euro</p>
             <Link className={style.btn} to={`/apartaments/edit/${id}`}>Edit</Link>
             <a style={{backgroundColor:'#cc3333'}} className={style.btn} onClick={()=>beforeRemoveHandler()}>Remove</a>
-            {/* <a style={{backgroundColor:'#cc3333'}} className={style.btn} onClick={()=>handleRemove(id)}>Remove</a> */}
-            {/* {loggedIn?<Link className={style.btn} onClick={likeHandler}>Like</Link>:null} */}
         </div>
     )
 };

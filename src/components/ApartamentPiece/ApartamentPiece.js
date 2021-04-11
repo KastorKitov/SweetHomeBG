@@ -13,13 +13,12 @@ function ApartamentPiece({
     city,
     owner
 }) {
-    const [loggedIn, setLoggedIn] = useContext(LoggedInContext);
+    const [loggedIn,] = useContext(LoggedInContext);
     const [user, setUser] = useContext(UserContext);
     const [isLiked, setIsLiked] = useState(null);
     const [owned,setOwned] = useState(null);
 
     const likeHandler = (e) => {
-        // e.preventDefault();
         fetch('http://localhost:5000/apartaments/liked', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
@@ -44,8 +43,8 @@ function ApartamentPiece({
             if(user._id===owner){
                 setOwned(true);
             }
-            if(user.liked.length==1){
-                if(user.liked[0]._id == id){
+            if(user.liked.length===1){
+                if(user.liked[0]._id === id){
                     setIsLiked(true)
                 };
             };

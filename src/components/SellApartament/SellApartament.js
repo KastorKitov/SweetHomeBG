@@ -5,11 +5,11 @@ import Footer from '../Footer/Footer';
 import UserContext from '../ContextUserInformation';
 import LoggedInContext from '../ContextLoggedIn';
 
-function SellApartament(props) {
+function SellApartament() {
 
     const [created,setCreated] = useState(false);
-    const [loggedIn,setLoggedIn] = useContext(LoggedInContext);
-    const [user, setUser] = useContext(UserContext);
+    const [loggedIn,] = useContext(LoggedInContext);
+    const [user,] = useContext(UserContext);
     const [errorMessage,setErrorMessage] = useState(null);
 
     const onSellHandler = (e) => {
@@ -20,7 +20,7 @@ function SellApartament(props) {
             setTimeout(() => setErrorMessage(null), 3000);
             return;
         }
-        if(e.target.rooms.value.length!=1){
+        if(e.target.rooms.value.length!==1){
             setErrorMessage('Please Enter Rooms Number!');
             setTimeout(() => setErrorMessage(null), 3000);
             return;
@@ -55,14 +55,13 @@ function SellApartament(props) {
         })
         .then(res=>res.json())
         .then(res=> {
-            console.log('created!')
                 setCreated(true);
             })
         .catch(err=>console.log('something went wrong!'))
     };
     return (
         <div>
-            {!loggedIn?<Redirect to="/"/>:null}
+            {!loggedIn?<Redirect to="/user/login"/>:null}
             {created?<Redirect to="/"/>:null}
             <h1 className={style.headerForSell}>Sell your apartament or house</h1>
             {errorMessage?<div className={style.errorMessage}>{errorMessage}</div> : null}
